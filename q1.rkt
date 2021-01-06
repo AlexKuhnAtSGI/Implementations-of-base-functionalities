@@ -1,0 +1,126 @@
+;Alexander Kuhn
+;ID 101023154
+#lang racket
+(define (fRecursive x)
+  (if (< x 4) x
+      (+ (fRecursive (- x 1)) (* 2 (fRecursive (- x 2))) (* 3 (fRecursive (- x 3))) (* 4 (fRecursive (- x 4))))))
+
+;(fRecursive 6)
+;(+ (fRecursive (- 6 1)) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))))
+;(+ (fRecursive 5) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))))
+;(+ (+ (fRecursive (- 5 1)) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4)))))
+;(+ (+ (fRecursive 4) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4)))))
+;(+ (+ (+ (fRecursive (- 4 1)) (* 2 (fRecursive (- 4 2))) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ (fRecursive 3) (* 2 (fRecursive (- 4 2))) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 (* 2 (fRecursive (- 4 2))) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 (* 2 (fRecursive 2)) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 (* 2 2) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 4 (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 4 (* 3 (fRecursive 1)) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 4 (* 3 1) (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 4 3 (* 4 (fRecursive (- 4 4))))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 4 3 (* 4 (fRecursive 0)))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 4 3 (* 4 0))) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ (+ 3 4 3 0)) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ (+ 10) (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 (* 2 (fRecursive (- 5 2))) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 (* 2 (fRecursive 3)) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 (* 2 3) (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 (* 3 (fRecursive (- 5 3))) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 (* 3 (fRecursive 2)) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 (* 3 2) (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 (* 4 (fRecursive (- 5 4))) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 (* 4 (fRecursive 1)) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 (* 4 1) (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (fRecursive (- 6 2))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (fRecursive 4)) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ (fRecursive (- 4 1)) (* 2 (fRecursive (- 4 2))) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ (fRecursive 3) (* 2 (fRecursive (- 4 2))) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 (* 2 (fRecursive (- 4 2))) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 (* 2 (fRecursive 2)) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 (* 2 2) (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 4 (* 3 (fRecursive (- 4 3))) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 4 (* 3 (fRecursive 1)) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 4 (* 3 1) (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 4 3 (* 4 (fRecursive (- 4 4))))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 4 3 (* 4 (fRecursive 0)))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 4 3 (* 4 0))) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 (+ 3 4 3 0)) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 (* 2 10) (* 3 (fRecursive (- 6 3))) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 20 (* 3 (fRecursive 3)) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 20 (* 3 3) (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 20 9 (* 4 (fRecursive (- 6 4))))
+;(+ 10 6 6 4 20 9 (* 4 (fRecursive 2)))
+;(+ 10 6 6 4 20 9 (* 4 2))
+;(+ 10 6 6 4 20 9 8)
+;63
+
+(define (fIterative x)
+  (define (f-Step a b c d curr)
+    (if (< curr 4) a
+        (f-Step (+ a (* 2 b) (* 3 c) (* 4 d)) a b c (- curr 1))
+        )
+    )
+  (f-Step 3 2 1 0 x)
+  )
+
+;(fIterative 6)
+;(f-Step 3 2 1 0 6)
+;(f-Step (+ 3 (* 2 2) (* 3 1) (* 4 0)) 3 2 1 (- 6 1))
+;(f-Step (+ 3 4 (* 3 1) (* 4 0)) 3 2 1 (- 6 1))
+;(f-Step (+ 3 4 3 (* 4 0)) 3 2 1 (- 6 1))
+;(f-Step (+ 3 4 3 0) 3 2 1 (- 6 1))
+;(f-Step 10 3 2 1 (- 6 1))
+;(f-Step 10 3 2 1 5)
+;(f-Step (+ 10 (* 2 3) (* 3 2) (* 4 1)) 10 3 2 (- 5 1))
+;(f-Step (+ 10 6 (* 3 2) (* 4 1)) 10 3 2 (- 5 1))
+;(f-Step (+ 10 6 6 (* 4 1)) 10 3 2 (- 5 1))
+;(f-Step (+ 10 6 6 4) 10 3 2 (- 5 1))
+;(f-Step (+ 10 6 6 4) 10 3 2 4)
+;(f-Step 26 10 3 2 4)
+;(f-Step (+ 26 (* 2 10) (* 3 3) (* 4 2)) 26 10 3 (- 4 1))
+;(f-Step (+ 26 20 (* 3 3) (* 4 2)) 26 10 3 (- 4 1))
+;(f-Step (+ 26 20 9 8) 26 10 3 (- 4 1))
+;(f-Step 63 26 10 3 (- 4 1))
+;(f-Step 63 26 10 3 3)
+;63
+
+;fRecursive tests
+;base case
+(display "(fRecursive 3)=> ")(newline)
+   (display "Expected: 3")(newline)
+   (display "Actual: ")(fRecursive 3)(newline)
+
+;example above
+(display "(fRecursive 6)=> ")(newline)
+   (display "Expected: 63")(newline)
+   (display "Actual: ")(fRecursive 6)(newline)
+
+;more intensive (any bigger than 30 and they start to hang indefinitely)
+(display "(fRecursive 10)=> ")(newline)
+   (display "Expected: 2533")(newline)
+   (display "Actual: ")(fRecursive 10)(newline)
+
+(display "(fRecursive 30)=> ")(newline)
+   (display "Expected: 266078681538")(newline)
+   (display "Actual: ")(fRecursive 30)(newline)
+
+;fIterative tests
+;base case
+(display "(fIterative 3)=> ")(newline)
+   (display "Expected: 3")(newline)
+   (display "Actual: ")(fIterative 3)(newline)
+
+;example above
+(display "(fIterative 6)=> ")(newline)
+   (display "Expected: 63")(newline)
+   (display "Actual: ")(fIterative 6)(newline)
+
+;more intensive (can do these instantaneously, in stark comparison to fRecursive)
+(display "(fIterative 10)=> ")(newline)
+   (display "Expected: 2533")(newline)
+   (display "Actual: ")(fIterative 10)(newline)
+
+(display "(fIterative 30)=> ")(newline)
+   (display "Expected: 266078681538")(newline)
+   (display "Actual: ")(fIterative 30)(newline)
